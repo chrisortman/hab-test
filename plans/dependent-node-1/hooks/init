@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+echo "------ INIT HOOK IS RUNNING -----"
+
+cp {{pkg.path}}/source/package.json {{pkg.svc_var_path}}
+cp {{pkg.path}}/source/server.js {{pkg.svc_var_path}}
+cp -a {{pkg.path}}/source/node_modules {{pkg.svc_var_path}}
