@@ -9,7 +9,7 @@ var port = parseInt(process.env.PORT) ;
 
 var handleRequest = function(request, response) {
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("I am a new version");    
+    response.end("I am a new version XXX-OOO");    
 }
 
 var www = http.createServer(handleRequest);
