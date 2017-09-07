@@ -5,7 +5,7 @@ var http = require('http'),
 //nconf.file({ file: '../config/config.json' });
 
 //var port = nconf.get('port');
-var port = 3004;
+var port = parseInt(process.env.PORT);
 
 var handleRequest = function(request, response) {
     response.writeHead(200, {"Content-Type": "text/plain"});
