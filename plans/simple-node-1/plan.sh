@@ -1,5 +1,6 @@
 pkg_name=simple-node-1
 pkg_origin=chrisortman
+pkg_description="This version uses a magic secret value to affect its output and adds all hooks"
 pkg_version="0.1.0"
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_deps=(core/node)
@@ -8,6 +9,7 @@ pkg_source="http://some_source_url/releases/${pkg_name}-${pkg_version}.tar.gz"
 
 pkg_exports=(
   [magic]=awesome.magic_secret
+  [dport]=other.port
 )
 
 do_download() {

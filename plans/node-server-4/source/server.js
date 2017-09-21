@@ -1,17 +1,10 @@
-var http = require('http'),
-	nconf = require('nconf');
-
-
-//nconf.file({ file: '../config/config.json' });
-
-//var port = nconf.get('port');
-var port = parseInt(process.env.PORT) ;
-var secret = process.env.SECRET;
+var http = require('http');
+var port = 4004;
 
 var handleRequest = function(request, response) {
     response.writeHead(200, {"Content-Type": "text/plain"});
     // response.end("I represent an older version");
-    response.end("I HAVE BEEN UPDATED. My magic value is: '" + secret + "'");
+    response.end("This server operates on node " + process.version + "\n");
 }
 
 var www = http.createServer(handleRequest);

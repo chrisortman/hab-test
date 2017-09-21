@@ -33,6 +33,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo groupadd hab
     sudo useradd -g hab hab
+    sudo apt-get install curl -y
     curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
   SHELL
 end
