@@ -41,8 +41,16 @@ do_build() {
 # want them on disk after the package is installed
 
 do_install() {
-  mkdir -p "${pkg_prefix}"
+  mkdir -p "${pkg_prefix}/bin"
   cp -a . "${pkg_prefix}"
+  local bin="${pkg_prefix}/bin/${pkg_name}"
+  cat <<EOF > "$bin"
+#!$(pkg_path_for busybox-static)/bin/sh
+set -e
+
+exec $(pkg_path_for node)/bin/node $pkg_prefix/source/server.js \$@
+EOF
+  chmod -v 755 "$bin"
   return 0
 }
 

@@ -1,0 +1,5 @@
+{
+{{#with bind.base.first as |b|}}
+  "otherServerUrl": "http://{{b.sys.ip}}:{{b.cfg.dport}}"
+{{/with}}
+}

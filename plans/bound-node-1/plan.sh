@@ -12,10 +12,7 @@ pkg_binds=(
 )
 
 do_begin() {
-  for f in file_updated health_check reconfigure reload suitability
-  do
-    cp $PLAN_CONTEXT/../simple-node-1/hooks/$f hooks/$f
-  done
+  return 0
 }
 
 do_download() {
@@ -27,14 +24,19 @@ do_verify() {
 }
 
 do_unpack() {
-  return 0
+  mkdir -p $CACHE_PATH
+  cp -a $PLAN_CONTEXT/source $CACHE_PATH/source
 }
 
 do_build() {
+  cd $CACHE_PATH/source
+  npm install
   return 0
 }
 
 do_install() {
+  mkdir -p "${pkg_prefix}"
+  cp -a . "${pkg_prefix}"
   return 0
 }
 
